@@ -1,35 +1,36 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <title>Produtos</title>
-</head>
-<body>
+@extends('layouts.app')
 
+@section('title', 'Produtos')
+
+@section('content')
+<div class="container">
     <h1>Lista de Produtos</h1>
+
+    <a href="/products/create">+ Novo produto</a>
 
     @if($products->isEmpty())
         <p>Nenhum produto cadastrado.</p>
     @else
-        <ul>
-            @foreach($products as $product)
-                <li>
+        @foreach($products as $product)
+            <div class="product">
+                <div>
                     <strong>{{ $product->name }}</strong><br>
                     Quantidade: {{ $product->quantity }}<br>
                     Preço: R$ {{ number_format($product->price, 2, ',', '.') }}
-                </li>
+                </div>
 
-                <a href="/products/{{ $product->id }}/edit">Editar</a>
+                <div>
+                    <a href="/products/{{ $product->id }}/edit">Editar</a>
 
-                <form action="/products/{{ $product->id }}" method="POST" style="display:inline">
-                    @csrf
-                    @method('DELETE')
-                    <button type="submit">Excluir</button>
-                </form>
-
-            @endforeach
-        </ul>
+                    <form action="/products/{{ $product->id }}" method="POST" style="display:inline">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit">Excluir</button>
+                    </form>
+                </div>
+            </div>
+        @endforeach
     @endif
+</div>
+@endsection
 
-</body>
-</html>

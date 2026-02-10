@@ -1,14 +1,40 @@
-<h1>Editar produto</h1>
+<link rel="stylesheet" href="/css/app.css">
 
-<form method="POST" action="/products/{{ $product->id }}">
-    @csrf
-    @method('PUT')
+@extends('layouts.app')
 
-    <input 
-        type="text" 
-        name="name" 
-        value="{{ $product->name }}"
-    >
+@section('title', 'Editar Produto')
 
-    <button type="submit">Atualizar</button>
-</form>
+@section('content')
+<div class="container">
+    <h1>Editar Produto</h1>
+
+    <form method="POST" action="/products/{{ $product->id }}">
+        @csrf
+        @method('PUT')
+
+        <input 
+            type="text" 
+            name="name" 
+            value="{{ $product->name }}"
+        >
+
+        <input 
+            type="number" 
+            name="quantity" 
+            value="{{ $product->quantity }}"
+        >
+
+        <input 
+            type="number" 
+            step="0.01" 
+            name="price" 
+            value="{{ $product->price }}"
+        >
+
+        <button type="submit">Atualizar</button>
+    </form>
+
+    <br>
+    <a href="/products">Voltar</a>
+</div>
+@endsection

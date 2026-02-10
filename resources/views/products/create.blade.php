@@ -1,40 +1,24 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <title>Cadastrar Produto</title>
-</head>
-<body>
+<link rel="stylesheet" href="/css/app.css">
 
-<h1>Cadastrar Produto</h1>
+@extends('layouts.app')
 
-<form action="/products" method="POST">
-    @csrf
+@section('title', 'Novo Produto')
 
-    <div>
-        <label>Nome</label><br>
-        <input type="text" name="name">
-    </div>
+@section('content')
+<div class="container">
+    <h1>Novo Produto</h1>
 
-    <div>
-        <label>Descrição</label><br>
-        <textarea name="description"></textarea>
-    </div>
+    <form method="POST" action="/products">
+        @csrf
 
-    <div>
-        <label>Quantidade</label><br>
-        <input type="number" name="quantity">
-    </div>
+        <input type="text" name="name" placeholder="Nome do produto">
+        <input type="number" name="quantity" placeholder="Quantidade">
+        <input type="number" step="0.01" name="price" placeholder="Preço">
 
-    <div>
-        <label>Preço</label><br>
-        <input type="number" step="0.01" name="price">
-    </div>
+        <button type="submit">Salvar</button>
+    </form>
 
     <br>
-    <button type="submit">Salvar</button>
-</form>
-
-</body>
-</html>
-
+    <a href="/products">Voltar</a>
+</div>
+@endsection

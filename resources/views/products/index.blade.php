@@ -18,6 +18,15 @@
                     Quantidade: {{ $product->quantity }}<br>
                     Preço: R$ {{ number_format($product->price, 2, ',', '.') }}
                 </li>
+
+                <a href="/products/{{ $product->id }}/edit">Editar</a>
+
+                <form action="/products/{{ $product->id }}" method="POST" style="display:inline">
+                    @csrf
+                    @method('DELETE')
+                    <button type="submit">Excluir</button>
+                </form>
+
             @endforeach
         </ul>
     @endif

@@ -11,9 +11,28 @@
     <form method="POST" action="/products">
         @csrf
 
-        <input type="text" name="name" placeholder="Nome do produto" value="{{ old('name') }}" >
-        <input type="number" name="quantity" placeholder="Quantidade" value="{{ old('quantity') }}" >
-        <input type="number" step="0.01" name="price" placeholder="Preço" value="{{ old('price') }}" >
+        <input 
+            type="text" 
+            name="name" 
+            placeholder="Nome do produto"
+            value="{{ old('name') }}"
+            class="{{ $errors->has('name') ? 'input-error' : '' }}"
+        >   
+        <input 
+            type="number" 
+            name="quantity" 
+            placeholder="Quantidade" 
+            value="{{ old('quantity') }}"
+            class="{{ $errors->has('quantity') ? 'input-error' : '' }}"
+        >
+        <input 
+            type="number" 
+            step="0.01" 
+            name="price" 
+            placeholder="Preço" 
+            value="{{ old('price') }}"
+            class="{{ $errors->has('price') ? 'input-error' : '' }}"
+        >
 
         <button type="submit">Salvar</button>
     </form>
@@ -24,10 +43,11 @@
 @endsection
 
 @if ($errors->any())
-    <div style="color:red; margin-bottom:10px;">
+    <div class="alert-error">
+        <strong>Ops! Algo deu errado:</strong>
         <ul>
             @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
+                <li> {{ $error }}</li>
             @endforeach
         </ul>
     </div>

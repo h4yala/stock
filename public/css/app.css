@@ -48,3 +48,31 @@ input {
     padding: 8px;
     margin-bottom: 10px;
 }
+
+.alert-success {
+    background: #dcfce7;
+    color: #166534;
+    padding: 12px;
+    border-radius: 6px;
+    margin-bottom: 20px;
+    border: 1px solid #86efac;
+}
+
+.alert-error {
+    background: #fee2e2;
+    color: #7f1d1d;
+    padding: 14px;
+    border-radius: 6px;
+    margin-bottom: 20px;
+    border: 1px solid #fca5a5;
+}
+
+.alert-error ul {
+    margin: 8px 0 0 0;
+    padding-left: 18px;
+}
+
+.input-error {
+    border: 1px solid #dc2626;
+    background: #fff5f5;
+}

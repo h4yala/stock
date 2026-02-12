@@ -28,7 +28,8 @@ class ProductController extends Controller
 
         Product::create($validated);
 
-        return redirect('/products');
+        return redirect('/products')
+            ->with('success', 'Produto criado com sucesso!');
     }
 
     public function edit(Product $product)
@@ -46,14 +47,16 @@ class ProductController extends Controller
 
         $product->update($validated);
 
-        return redirect('/products');
+        return redirect('/products')
+            ->with('success', 'Produto atualizado com sucesso!');
     }
 
 
     public function destroy(Product $product)
     {
         $product->delete();
-        return redirect('/products');
+        return redirect('/products')
+            ->with('success', 'Produto removido com sucesso!');
     }
 
 }

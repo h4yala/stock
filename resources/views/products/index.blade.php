@@ -6,6 +6,12 @@
 <div class="container">
     <h1>Lista de Produtos</h1>
 
+    @if(session('success'))
+        <div class="alert-success">
+            {{ session('success') }}
+        </div>
+    @endif  
+    
     <a href="/products/create">+ Novo produto</a>
 
     @if($products->isEmpty())

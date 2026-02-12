@@ -40,10 +40,11 @@
 @endsection
 
 @if ($errors->any())
-    <div style="color:red; margin-bottom:10px;">
+    <div class="alert-error">
+        <strong>Ops! Algo deu errado:</strong>
         <ul>
             @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
+                <li> {{ $error }}</li>
             @endforeach
         </ul>
     </div>

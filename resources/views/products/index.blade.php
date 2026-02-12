@@ -3,6 +3,7 @@
 @section('title', 'Produtos')
 
 @section('content')
+
 <div class="container">
     <h1>Lista de Produtos</h1>
 
@@ -12,7 +13,9 @@
         </div>
     @endif  
 
-    <div style="margin-bottom: 20px;">
+    <div class="actions">
+        <a href="/dashboard" class="btn btn-outline">Dashboard</a>
+
         <a href="/products/create" class="btn btn-primary">
             Novo Produto
         </a>
@@ -37,7 +40,10 @@
                     <form action="/products/{{ $product->id }}" method="POST">
                         @csrf
                         @method('DELETE')
-                        <button class="btn btn-danger">
+                        <button 
+                            class="btn btn-danger"
+                            onclick="return confirm('Tem certeza que deseja excluir este produto?')"
+                        >
                             Excluir
                         </button>
                     </form>

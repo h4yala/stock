@@ -59,4 +59,17 @@ class ProductController extends Controller
             ->with('success', 'Produto removido com sucesso!');
     }
 
+    public function dashboard() 
+    {
+        $totalProducts = Product::count();
+        $totalQuantity = Product::sum('quantity');
+        $totalValue = Product::sum(\DB::raw('quantity * price'));
+        
+        return view('dashboard', compact(
+            'totalProducts',
+            'totalQuantity',
+            'totalValue'
+        ));
+    }
+
 }

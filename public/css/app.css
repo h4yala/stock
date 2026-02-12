@@ -126,9 +126,14 @@ input:focus {
     font-weight: 500;
     font-size: 14px;
     transition: all 0.25s ease;
-    display: inline-flex;
+    display: inline-block;
     align-items: center;
     gap: 6px;
+    text-decoration: none;
+}
+
+.btn:hover {
+    text-decoration: none;
 }
 
 .btn-primary {
@@ -159,4 +164,40 @@ input:focus {
 
 .btn-outline:hover {
     background: var(--color-bg);
+}
+
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.card {
+    background: white;
+    border: 1px solid var(--color-border);
+    padding: 24px;
+    border-radius: var(--radius);
+    transition: 0.2s ease;
+}
+
+.card:hover {
+    box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+}
+
+.card h3 {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 10px;
+}
+
+.card p {
+    font-size: 24px;
+    font-weight: 500;
+    color: var(--color-primary);
+}
+
+.actions {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 20px;
 }

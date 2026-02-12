@@ -12,27 +12,43 @@
         @csrf
         @method('PUT')
 
-        <input 
-            type="text" 
-            name="name" 
-            value="{{ $product->name }}"
-        >
+        <div class="form-group">
+            <label>Nome do Produto</label>
+            <input 
+                type="text" 
+                name="name" 
+                {{-- placeholder="Nome do produto" --}}
+                value="{{ $product->name }}"
+                class="{{ $errors->has('name') ? 'input-error' : '' }}"
+            >   
+        </div>
+        
+        <div class="form-group">
+            <label>Quantidade</label>
+            <input 
+                type="number" 
+                name="quantity" 
+                {{-- placeholder="Quantidade" --}}
+                value="{{ $product->quantity }}"
+                class="{{ $errors->has('quantity') ? 'input-error' : '' }}"
+            >
+        </div>
+        
+        <div class="form-group">
+            <label>Preço</label>
+            <input 
+                type="number" 
+                step="0.01" 
+                name="price" 
+                {{-- placeholder="Preço" --}}
+                value="{{ $product->price }}"
+                class="{{ $errors->has('price') ? 'input-error' : '' }}"
+            >
+        </div>
 
-        <input 
-            type="number" 
-            name="quantity" 
-            value="{{ $product->quantity }}"
-        >
-
-        <input 
-            type="number" 
-            step="0.01" 
-            name="price" 
-            value="{{ $product->price }}"
-        >
-
-        <button type="submit">Atualizar</button>
+        <button type="submit" class="btn-primary">Atualizar produto</button>
     </form>
+
 
     <br>
     <a href="/products">Voltar</a>

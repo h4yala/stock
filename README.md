@@ -6,13 +6,13 @@ O objetivo do projeto é praticar conceitos fundamentais de desenvolvimento web 
 
 ---
 
-## 🚀 Funcionalidades
+## 🚀 Funcionalidades implementadas
 
-- Cadastro de produtos
-- Edição e exclusão de produtos
-- Controle de quantidade em estoque
-- Validações de dados
-- Listagem de produtos
+- CRUD completo de produtos
+- Validação de formulário
+- Feedback visual (mensagens de sucesso e erro)
+- Layout base reutilizável
+- Interface organizada com CSS customizado
 
 ---
 
@@ -36,9 +36,12 @@ O &stock foi pensado para ser simples, funcional e evolutivo, permitindo futuras
 ## 📌 Próximos passos
 
 - Implementar movimentação de entrada e saída de estoque
-- Melhorar validações
-- Adicionar testes
-- Melhorar interface
+- Criar dashboard com resumo de produtos
+- Adicionar autenticação de usuários
+- Implementar testes automatizados
+- Aplicar um mini design system para padronização visual
+- Deploy do projeto
+
 
 ---
 

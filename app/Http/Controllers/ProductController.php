@@ -20,7 +20,14 @@ class ProductController extends Controller
 
     public function store(Request $request)
     {
-        Product::create($request->all());
+        $validated = $request->validate([
+            'name' => 'required|min:3',
+            'quantity' => 'required|integer|min:0',
+            'price' => 'required|numeric|min:0'
+        ]);
+
+        Product::create($validated);
+
         return redirect('/products');
     }
 
@@ -31,9 +38,17 @@ class ProductController extends Controller
 
     public function update(Request $request, Product $product)
     {
-        $product->update($request->all());
+        $validated = $request->validate([
+            'name' => 'required|min:3',
+            'quantity' => 'required|integer|min:0',
+            'price' => 'required|numeric|min:0'
+        ]);
+
+        $product->update($validated);
+
         return redirect('/products');
     }
+
 
     public function destroy(Product $product)
     {

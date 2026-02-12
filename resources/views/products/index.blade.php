@@ -7,12 +7,16 @@
     <h1>Lista de Produtos</h1>
 
     @if(session('success'))
-        <div class="alert-success">
-            {{ session('success') }}
+        <div class="alert alert-success">
+            ✓ {{ session('success') }}
         </div>
     @endif  
-    
-    <a href="/products/create">+ Novo produto</a>
+
+    <div style="margin-bottom: 20px;">
+        <a href="/products/create" class="btn btn-primary">
+            Novo Produto
+        </a>
+    </div>
 
     @if($products->isEmpty())
         <p>Nenhum produto cadastrado.</p>
@@ -25,13 +29,17 @@
                     Preço: R$ {{ number_format($product->price, 2, ',', '.') }}
                 </div>
 
-                <div>
-                    <a href="/products/{{ $product->id }}/edit">Editar</a>
+                <div style="display:flex; gap:8px;">
+                    <a href="/products/{{ $product->id }}/edit" class="btn btn-outline">
+                        Editar
+                    </a>
 
-                    <form action="/products/{{ $product->id }}" method="POST" style="display:inline">
+                    <form action="/products/{{ $product->id }}" method="POST">
                         @csrf
                         @method('DELETE')
-                        <button type="submit">Excluir</button>
+                        <button class="btn btn-danger">
+                            Excluir
+                        </button>
                     </form>
                 </div>
             </div>
@@ -39,4 +47,3 @@
     @endif
 </div>
 @endsection
-

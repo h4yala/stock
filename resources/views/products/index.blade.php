@@ -40,50 +40,64 @@
                     Preço: R$ {{ number_format($product->price, 2, ',', '.') }}
                 </div>
 
-                <form action="/products/{{ $product->id }}/movement" 
-                    method="POST" 
-                    class="movement-form">
-                    @csrf
+                <div class="product-actions">
 
-                    <input 
-                        type="number" 
-                        name="quantity" 
-                        placeholder="Qtd"
-                        min="1"
-                        class="movement-input"
-                    >
-
-                    <button 
-                        name="type" 
-                        value="in" 
-                        class="btn btn-success btn-small">
-                        + Entrada
-                    </button>
-
-                    <button 
-                        name="type" 
-                        value="out" 
-                        class="btn btn-warning btn-small">
-                        − Saída
-                    </button>
-                </form>
-
-                <div style="display:flex; gap:8px;">
-                    <a href="/products/{{ $product->id }}/edit" class="btn btn-outline">
-                        Editar
-                    </a>
-
-                    <form action="/products/{{ $product->id }}" method="POST">
+                    <!-- BLOCO MOVIMENTAÇÃO -->
+                    <form action="/products/{{ $product->id }}/movement"
+                        method="POST"
+                        class="movement-block">
                         @csrf
-                        @method('DELETE')
-                        <button 
-                            class="btn btn-danger"
-                            onclick="return confirm('Tem certeza que deseja excluir este produto?')"
+
+                        <input 
+                            type="number"
+                            name="quantity"
+                            placeholder="Qtd"
+                            min="1"
+                            class="movement-input"
                         >
-                            Excluir
-                        </button>
+
+                        <div class="movement-buttons">
+                            <button 
+                                name="type"
+                                value="in"
+                                class="btn btn-success btn-small">
+                                + Entrada
+                            </button>
+
+                            <button 
+                                name="type"
+                                value="out"
+                                class="btn btn-warning btn-small">
+                                − Saída
+                            </button>
+                        </div>
                     </form>
+
+                    <!-- BLOCO ADMIN -->
+                    <div class="admin-buttons">
+                        <a href="/products/{{ $product->id }}/history"
+                        class="btn btn-outline btn-small">
+                            Histórico
+                        </a>
+
+                        <a href="/products/{{ $product->id }}/edit"
+                        class="btn btn-outline btn-small">
+                            Editar
+                        </a>
+
+                        <form action="/products/{{ $product->id }}"
+                            method="POST">
+                            @csrf
+                            @method('DELETE')
+
+                            <button class="btn btn-danger btn-small">
+                                Excluir
+                            </button>
+                        </form>
+                    </div>
+
                 </div>
+
             </div>
         @endforeach
     @endif

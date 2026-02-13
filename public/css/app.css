@@ -219,7 +219,7 @@ input:focus {
 }
 
 .movement-input {
-    width: 80px;
+    width: 70px;
     padding: 8px;
     border-radius: var(--radius);
     border: 1px solid var(--color-border);
@@ -227,9 +227,12 @@ input:focus {
 }
 
 .btn-small {
-    padding: 6px 12px;
+    padding: 6px 14px;
     font-size: 13px;
     border-radius: 999px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .btn-success {
@@ -239,4 +242,69 @@ input:focus {
 
 .btn-success:hover {
     opacity: 0.9;
+}
+
+.history-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    border-radius: 12px;
+    margin-bottom: 12px;
+    border: 1px solid #e5e5e5;
+    background: #fff;
+}
+
+.history-left {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.badge {
+    font-weight: 600;
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 13px;
+    width: fit-content;
+}
+
+.badge.in {
+    background: #d4f3e3;
+    color: #1f6f4a;
+}
+
+.badge.out {
+    background: #f8d7da;
+    color: #842029;
+}
+
+.history-date {
+    font-size: 14px;
+    color: #666;
+}
+
+.product-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.movement-block {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.movement-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.admin-buttons {
+    display: flex;
+    gap: 12px;
+    margin-left: 20px;
 }

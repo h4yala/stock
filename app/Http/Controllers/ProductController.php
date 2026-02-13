@@ -101,4 +101,13 @@ class ProductController extends Controller
         return back()->with('success', 'Movimentação registrada com sucesso.');
     }
 
+    public function history(Product $product)
+    {
+        $movements = $product->movements()
+                            ->latest()
+                            ->get();
+
+        return view('products.history', compact('product', 'movements'));
+    }
+
 }

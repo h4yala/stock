@@ -72,4 +72,33 @@ class ProductController extends Controller
         ));
     }
 
+    public function movement(Request $request, Product $product)
+    {
+        $request->validate([
+            'type' => 'required|in:in,out',
+            'quantity' => 'required|integer|min:1',
+        ]);
+
+        if ($request->type === 'out' && $product->quantity < $request->quantity) {
+            return back()->withErrors([
+                'quantity' => 'Quantidade insuficiente em estoque.'
+            ]);
+        }
+
+        if ($request->type === 'in') {
+            $product->quantity += $request->quantity;
+        } else {
+            $product->quantity -= $request->quantity;
+        }
+
+        $product->save();
+
+        $product->movements()->create([
+            'type' => $request->type,
+            'quantity' => $request->quantity,
+        ]);
+
+        return back()->with('success', 'Movimentação registrada com sucesso.');
+    }
+
 }

@@ -11,7 +11,15 @@
         <div class="alert alert-success">
             ✓ {{ session('success') }}
         </div>
-    @endif  
+    @endif
+
+    @if ($errors->any())
+        <div class="alert alert-error">
+            @foreach ($errors->all() as $error)
+                <p>{{ $error }}</p>
+            @endforeach
+        </div>
+    @endif
 
     <div class="actions">
         <a href="/dashboard" class="btn btn-outline">Dashboard</a>
@@ -31,6 +39,34 @@
                     Quantidade: {{ $product->quantity }}<br>
                     Preço: R$ {{ number_format($product->price, 2, ',', '.') }}
                 </div>
+
+                <form action="/products/{{ $product->id }}/movement" 
+                    method="POST" 
+                    class="movement-form">
+                    @csrf
+
+                    <input 
+                        type="number" 
+                        name="quantity" 
+                        placeholder="Qtd"
+                        min="1"
+                        class="movement-input"
+                    >
+
+                    <button 
+                        name="type" 
+                        value="in" 
+                        class="btn btn-success btn-small">
+                        + Entrada
+                    </button>
+
+                    <button 
+                        name="type" 
+                        value="out" 
+                        class="btn btn-warning btn-small">
+                        − Saída
+                    </button>
+                </form>
 
                 <div style="display:flex; gap:8px;">
                     <a href="/products/{{ $product->id }}/edit" class="btn btn-outline">
@@ -52,4 +88,7 @@
         @endforeach
     @endif
 </div>
+
+
+
 @endsection

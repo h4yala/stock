@@ -10,3 +10,4 @@ Route::get('/products/{product}/edit', [ProductController::class, 'edit']);
 Route::put('/products/{product}', [ProductController::class, 'update']);
 Route::delete('/products/{product}', [ProductController::class, 'destroy']);
 Route::get('/dashboard', [ProductController::class, 'dashboard']);
+Route::post('/products/{product}/movement', [ProductController::class, 'movement']);

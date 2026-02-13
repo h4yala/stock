@@ -1,18 +1,32 @@
 # &stock 📦
 
-&stock é um sistema simples de controle de estoque desenvolvido como projeto de estudo em backend.
+&stock é um sistema de controle de estoque desenvolvido com Laravel, focado em regras de negócio, organização de código e experiência do usuário.
 
-O objetivo do projeto é praticar conceitos fundamentais de desenvolvimento web utilizando PHP, Laravel, MySQL e TypeScript, com foco em organização, regras de negócio e boas práticas.
+O projeto foi criado como parte do meu processo de evolução na área de desenvolvimento backend, com foco em construção de aplicações funcionais e escaláveis.
 
 ---
 
-## 🚀 Funcionalidades implementadas
+## 🚀 Funcionalidades
 
+### 📦 Gestão de Produtos
 - CRUD completo de produtos
-- Validação de formulário
-- Feedback visual (mensagens de sucesso e erro)
-- Layout base reutilizável
-- Interface organizada com CSS customizado
+- Validação de dados no backend
+- Feedback visual para erros e sucesso
+
+### 🔄 Movimentação de Estoque
+- Entrada e saída de produtos
+- Registro histórico de movimentações
+- Regra de negócio para impedir estoque negativo
+
+### 📊 Dashboard
+- Total de produtos cadastrados
+- Quantidade total em estoque
+- Valor total do estoque
+
+### 🎨 Interface
+- Mini design system com CSS customizado
+- Componentização de layout com Blade
+- Interface consistente e responsiva
 
 ---
 
@@ -21,36 +35,38 @@ O objetivo do projeto é praticar conceitos fundamentais de desenvolvimento web 
 - PHP
 - Laravel
 - MySQL
-- TypeScript
-- Blade (Laravel)
+- Blade
+- CSS customizado
 
 ---
 
-## 🎯 Objetivo do projeto
+## 🧠 Conceitos aplicados
 
-Este projeto faz parte do meu processo de transição e desenvolvimento na área de TI, com foco em backend.
-O &stock foi pensado para ser simples, funcional e evolutivo, permitindo futuras melhorias.
+- Programação Orientada a Objetos
+- Relacionamentos Eloquent (hasMany / belongsTo)
+- Validação de regras de negócio
+- Organização em camadas (Controllers, Models, Views)
+- Separação de responsabilidades
 
 ---
 
-## 📌 Próximos passos
+## 📈 Próximas evoluções
 
-- Implementar movimentação de entrada e saída de estoque
-- Criar dashboard com resumo de produtos
-- Adicionar autenticação de usuários
-- Implementar testes automatizados
-- Aplicar um mini design system para padronização visual
-- Deploy do projeto
-
+- Tela de histórico detalhado por produto
+- Autenticação de usuários
+- Testes automatizados
+- Relatórios analíticos
+- Deploy em ambiente de produção
 
 ---
 
 ## 📷 Status do projeto
 
-🚧 Em desenvolvimento
+🚀 Em evolução contínua
 
 ---
 
 ## 👩‍💻 Autora
 
-Projeto desenvolvido por Hayala Hora estudante de Engenharia de Software
+Desenvolvido por Hayala Hora  
+Estudante de Engenharia de Software

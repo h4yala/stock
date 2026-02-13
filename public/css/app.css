@@ -147,13 +147,22 @@ input:focus {
 }
 
 .btn-danger {
-    background: var(--color-accent);
+    background: #7a2e2e;
     color: white;
 }
 
 .btn-danger:hover {
     opacity: 0.9;
     transform: translateY(-1px);
+}
+
+.btn-warning {
+    background: #d36d66; 
+    color: white;
+}
+
+.btn-warning:hover {
+    opacity: 0.9;
 }
 
 .btn-outline {
@@ -200,4 +209,34 @@ input:focus {
     display: flex;
     gap: 12px;
     margin-bottom: 20px;
+}
+
+.movement-form {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.movement-input {
+    width: 80px;
+    padding: 8px;
+    border-radius: var(--radius);
+    border: 1px solid var(--color-border);
+    text-align: center;
+}
+
+.btn-small {
+    padding: 6px 12px;
+    font-size: 13px;
+    border-radius: 999px;
+}
+
+.btn-success {
+    background: var(--color-success-text);
+    color: white;
+}
+
+.btn-success:hover {
+    opacity: 0.9;
 }

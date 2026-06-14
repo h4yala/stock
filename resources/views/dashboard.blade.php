@@ -1,34 +1,17 @@
-@extends('layouts.app')
+<x-app-layout>
+    <x-slot name="header">
+        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+            {{ __('Dashboard') }}
+        </h2>
+    </x-slot>
 
-@section('title', 'Dashboard')
-
-@section('content')
-<div class="container">
-    <h1>Dashboard</h1>
-
-    <div class="actions">
-        <a href="/products" class="btn btn-outline">
-            ← Produtos
-        </a>
+    <div class="py-12">
+        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
+                <div class="p-6 text-gray-900">
+                    {{ __("You're logged in!") }}
+                </div>
+            </div>
+        </div>
     </div>
-
-    <div class="dashboard-grid">
-
-        <div class="card">
-            <h3>Total de Produtos</h3>
-            <p>{{ $totalProducts }}</p>
-        </div>
-
-        <div class="card">
-            <h3>Total em Estoque</h3>
-            <p>{{ $totalQuantity }}</p>
-        </div>
-
-        <div class="card">
-            <h3>Valor Total</h3>
-            <p>R$ {{ number_format($totalValue, 2, ',', '.') }}</p>
-        </div>
-
-    </div>
-</div>
-@endsection
+</x-app-layout>

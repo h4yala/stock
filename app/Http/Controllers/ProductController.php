@@ -26,7 +26,12 @@ class ProductController extends Controller
             'price' => 'required|numeric|min:0'
         ]);
 
-        Product::create($validated);
+        $product = Product::create([
+            'name' => $request->name,
+            'quantity' => $request->quantity,
+            'price' => $request->price,
+            'user_id' => auth()->id(),
+        ]);
 
         return redirect('/products')
             ->with('success', 'Produto criado com sucesso!');
